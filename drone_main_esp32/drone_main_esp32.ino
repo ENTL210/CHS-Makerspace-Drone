@@ -6,7 +6,7 @@ Adafruit_MPU6050 mpu;
 
 void setup(void) {
   Serial.begin(115200);
-  Serial2.begin(115200, SERIAL_8N1, 16, 17); 
+  Serial1.begin(115200);
   Wire.begin(21,22);
 
   // Try to initialize!
@@ -35,7 +35,7 @@ void loop() {
     g.gyro.z
   };
 
-  Serial2.write((uint8_t*)gyroData, sizeof(gyroData));
+  Serial1.write((uint8_t*)gyroData, sizeof(gyroData));
 
   Serial.print("Gyro X: "); Serial.print(gyroData[0]);
   Serial.print(" | Y: "); Serial.print(gyroData[1]);
